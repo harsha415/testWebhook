@@ -1,0 +1,23 @@
+version: 0.2
+
+env:
+  variables:
+    echo No_Variables: "No_Variables"
+
+phases:
+  pre_build:
+    commands:
+     - npm -v
+     - echo npm init.
+     - npm install -g newman
+     - npm install -g newman-reporter-htmlextra
+  build:
+    commands:
+     - ls -alrt
+     - report=Auth_Report-$(date +%F-%H-%M-%S).html
+     - newman -v
+     - echo "Ranjani"
+     - newman run Authenticate.postman_collection.json -r htmlextra --reporter-htmlextra-export report.html --reporter-htmlextra-browserTitle "Authentication" --reporter-htmlextra-title "Authentication" -g "MultiOne-Automation.postman_globals.json"
+  post_build:
+    commands:
+     - cat report.html | head -10
