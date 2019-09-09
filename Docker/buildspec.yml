@@ -17,7 +17,6 @@ phases:
      - report=Auth_Report-$(date +%F-%H-%M-%S).html
      - newman -v
      - echo "Ranjani"
-     - newman run Authenticate.postman_collection.json -r htmlextra --reporter-htmlextra-export report.html --reporter-htmlextra-browserTitle "Authentication" --reporter-htmlextra-title "Authentication" -g "MultiOne-Automation.postman_globals.json"
   post_build:
     commands:
-     - cat report.html | head -10
+     - echo something
