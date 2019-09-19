@@ -16,7 +16,7 @@ phases:
      - ls -alrt
      - report=Auth_Report-$(date +%F-%H-%M-%S).html
      - newman -v
-     - echo "Ranjani"
+     - echo "Harsha"
   post_build:
     commands:
      - echo Changed this
